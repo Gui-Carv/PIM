@@ -107,6 +107,7 @@ void menuPrincipal()
     printf("\t\t\t\t\t\t\t    |\t 4 - Fazer login como Funcionario         |\n");
     printf("\t\t\t\t\t\t\t    |\t 5 - Fazer login como Voluntario          |\n");
     printf("\t\t\t\t\t\t\t    |\t 6 - Quadro de Medalhas                   |\n");
+    printf("\t\t\t\t\t\t\t    |\t 7 - Marque um treino                     |\n");
     printf("\t\t\t\t\t\t\t    |\t 0 - Sair                                 |\n");
     printf("\t\t\t\t\t\t\t    |\t                                          |\n");
     printf("\t\t\t\t\t\t\t    ===============================================\n");
@@ -120,7 +121,7 @@ void menuPrincipal()
         {
         case 1:
             menuLogin();
-            break;   
+            break;
         case 2:
             menuUsers();
             break;
@@ -135,6 +136,9 @@ void menuPrincipal()
             break;
         case 6:
             menuMedalhas();
+            break;
+        case 7:
+            menuTreino();
             break;
         case 0:
             exit(EXIT_SUCCESS);
@@ -154,7 +158,7 @@ void menuLogin()
 
     printf("\n");
     printf ("\t\t\t\tFaca seu Login:\n");
-    
+
     printf("Digite seu nome: ");
     scanf("%s", nome);
     fscanf(pon_arq, "%s\n", nome);
@@ -216,8 +220,8 @@ void menuCad()
     pon_arq = fopen("cadastro.txt", "a");
 
     printf("\n");
-    printf ("\t\t\t\tFaca de cadastro\n");
-    
+    printf ("\t\t\t\tFaca seu cadastro\n");
+
     printf("Digite seu nome: ");
     scanf("%s", nome);
     fprintf(pon_arq, "%s\n", nome);
@@ -306,7 +310,7 @@ void menuMedalhas()
     printf("\t\t\t\t\t\t\t   ==================================================\n");
     printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" / 2 / 3 / 4 / 5 / 6                 |\n");
+    printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" / 2 /             |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -324,18 +328,6 @@ void menuMedalhas()
         break;
     case 2:
         menuMedalhas2();
-        break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
         break;
     case 0:
         menuPrincipal();
@@ -350,29 +342,23 @@ void menuMedalhas2()
     printf("\n\n\n\n\n\n\n");
     printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
+    printf("\t\t\t\t\t\t\t   |         PAISES                  MEDALHAS       |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
     printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   16 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   17 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   18 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   19 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   20 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   21 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   22 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   23 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   24 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   25 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   26 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   27 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   28 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   29 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   30 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
+    printf("\t\t\t\t\t\t\t   |    16 - Coreia do sul       6 |    4  |    10   |\n");
+    printf("\t\t\t\t\t\t\t   |    17 - Polonia             4 |    5  |     5   |\n");
+    printf("\t\t\t\t\t\t\t   |    18 - Republica Checa     4 |    4  |     3   |\n");
+    printf("\t\t\t\t\t\t\t   |    19 - Quenia              4 |    4  |     2   |\n");
+    printf("\t\t\t\t\t\t\t   |    20 - Noruega             4 |    2  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |    21 - Jamaica             4 |    1  |     6   |\n");
+    printf("\t\t\t\t\t\t\t   |    22 - Espanha             3 |    8  |     0   |\n");
+    printf("\t\t\t\t\t\t\t   |    23 - Suecia              3 |    6  |     6   |\n");
+    printf("\t\t\t\t\t\t\t   |    24 - Suica               3 |    4  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |    25 - Dinamarca           3 |    4  |     4   |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite 3 Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / "),printf(ANSI_COLOR_GREEN"2"),printf(ANSI_COLOR_WHITE" / 3 / 4 / 5 / 6                 |\n");
+    printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" 1/ 2 /                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -391,18 +377,6 @@ void menuMedalhas2()
     case 2:
         menuMedalhas2();
         break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
-        break;
     case 0:
         menuPrincipal();
     default:
@@ -411,266 +385,43 @@ void menuMedalhas2()
     }
 }
 
-void menuMedalhas3()
+
+
+    void menuTreino()
 {
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   31 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   32 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   33 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   34 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   35 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   36 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   37 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   38 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   39 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   40 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   41 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   42 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   43 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   44 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   45 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / 2 / "),printf(ANSI_COLOR_GREEN"3"),printf(ANSI_COLOR_WHITE" / 4 / 5 / 6                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
 
-    switch(input)
-    {
-    case 1:
-        menuMedalhas();
-        break;
-    case 2:
-        menuMedalhas2();
-        break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
-        break;
-    case 0:
-        menuPrincipal();
-    default:
-        printf ("\n\t\t\tOpcao invalida!\n\n");
-        fflush(stdin);
-    }
+    FILE *pon_arq;
+
+    pon_arq = fopen("treino.txt", "a");
+
+    printf("\n\n\n\n\n\n\n");
+    printf ("\t\t\t\t     Dias disponiveis\n");
+    printf ("\t\t\t\tSegunda-feira: 10h 13h 15h 17h\n");
+    printf ("\t\t\t\tterca-feira:   10h 15h 17h\n");
+    printf ("\t\t\t\tQuarta-feira:  10h 13h 19h\n");
+    printf ("\t\t\t\tquinta-feira:  10h 19h 21h\n");
+    printf ("\t\t\t\tquinta-feira:  Nao ha horarios\n");
+    printf ("\t\t\t\tsexta-feira:   Nao ha horarios\n");
+    printf("\n\n");
+
+
+    printf("\n");
+    printf ("\t\t\t\t "),printf(ANSI_COLOR_GREEN"Marque seu treino"),printf(ANSI_COLOR_WHITE" \n");
+
+    printf("Digite seu nome: ");
+    scanf("%s", nome);
+    fprintf(pon_arq, "%s\n", nome);
+
+    printf("Digite sua modalidade: ");
+    scanf("%s", modalidade);
+    fprintf(pon_arq, "%s\n", modalidade);
+
+    printf("Digite sua equipe(pais): ");
+    scanf("%s", equipe);
+    fprintf(pon_arq, "%s\n", equipe);
+
+
+    system("cls");
+    menuPrincipal();
 }
 
-void menuMedalhas4()
-{
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   46 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   47 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   48 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   49 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   50 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   51 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   52 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   53 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   54 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   55 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   56 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   57 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   58 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   59 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   60 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / "),printf(ANSI_COLOR_GREEN"4"),printf(ANSI_COLOR_WHITE" / 5 / 6                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
-
-    switch(input)
-    {
-    case 1:
-        menuMedalhas();
-        break;
-    case 2:
-        menuMedalhas2();
-        break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
-        break;
-    case 0:
-        menuPrincipal();
-    default:
-        printf ("\n\t\t\tOpcao invalida!\n\n");
-        fflush(stdin);
-    }
-}
-
-void menuMedalhas5()
-{
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   61 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   62 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   63 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   64 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   65 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   66 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   67 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   68 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   69 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   70 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   71 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   72 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   73 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   74 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   75 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / 4 / "),printf(ANSI_COLOR_GREEN"5"),printf(ANSI_COLOR_WHITE" / 6                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
-
-    switch(input)
-    {
-    case 1:
-        menuMedalhas();
-        break;
-    case 2:
-        menuMedalhas2();
-        break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
-        break;
-    case 0:
-        menuPrincipal();
-    default:
-        printf ("\n\t\t\tOpcao invalida!\n\n");
-        fflush(stdin);
-    }
-}
-
-void menuMedalhas6()
-{
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   76 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   77 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   78 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   79 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   80 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   81 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   82 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   83 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   84 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   85 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   86 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   87 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   88 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   89 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   90 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / 4 / 5 / "),printf(ANSI_COLOR_GREEN"6"),printf(ANSI_COLOR_WHITE"\t\t    |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
-
-    switch(input)
-    {
-    case 1:
-        menuMedalhas();
-        break;
-    case 2:
-        menuMedalhas2();
-        break;
-    case 3:
-        menuMedalhas3();
-        break;
-    case 4:
-        menuMedalhas4();
-        break;
-    case 5:
-        menuMedalhas5();
-        break;
-    case 6:
-        menuMedalhas6();
-        break;
-    case 0:
-        menuPrincipal();
-    default:
-        printf ("\n\t\t\tOpcao invalida!\n\n");
-        fflush(stdin);
-    }
-}
