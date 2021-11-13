@@ -154,7 +154,7 @@ void menuLogin()
 
     FILE *pon_arq;
 
-    pon_arq = fopen("cadastro.txt", "a");
+    pon_arq = fopen("cadastro.txt", "r");
 
     printf("\n");
     printf ("\t\t\t\tFaca seu Login:\n");
@@ -173,42 +173,42 @@ void menuLogin()
 
 void menuUsers()
 {
-        printf("\n\n\n\n\n\n\n");
-        printf("\t\t\t\t\t\t\t\t            Area de cadastro\n");
-        printf("\t\t\t\t\t\t\t\t    ===============================\n");
-        printf("\t\t\t\t\t\t\t\t    |                             |\n");
-        printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
-        printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
-        printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
-        printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
-        printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
-        printf("\t\t\t\t\t\t\t\t    |                             |\n");
-        printf("\t\t\t\t\t\t\t\t    ===============================\n");
-        printf("\n\n");
-        printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t            Area de cadastro\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+    switch(input)
+    {
+    case 1:
+        menuCad();
+        break;
+    case 2:
+        menuAlterarUser();
+        break;
+    case 3:
+        //removerUser(qtdUsers, users_dir);
+        break;
+    case 4:
+        menuPrincipal();
+        break;
+    case 0:
+        exit(EXIT_SUCCESS);
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
         fflush(stdin);
-        scanf("%d", &input);
-        system("cls");
-        switch(input)
-        {
-        case 1:
-            menuCad();
-            break;
-        case 2:
-            menuAlterarUser();
-            break;
-        case 3:
-            //removerUser(qtdUsers, users_dir);
-            break;
-        case 4:
-            menuPrincipal();
-            break;
-        case 0:
-            exit(EXIT_SUCCESS);
-        default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
-        }
+    }
     system("cls");
 }
 
@@ -308,7 +308,7 @@ void menuMedalhas()
     printf("\t\t\t\t\t\t\t   |   15 - Hungria             6 |    7  |     7   |\n");
     printf("\t\t\t\t\t\t\t   |                              |       |         |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" / 2 /             |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -356,7 +356,7 @@ void menuMedalhas2()
     printf("\t\t\t\t\t\t\t   |    24 - Suica               3 |    4  |     4   |\n");
     printf("\t\t\t\t\t\t\t   |    25 - Dinamarca           3 |    4  |     4   |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 3 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" 1/ 2 /                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -389,6 +389,41 @@ void menuMedalhas2()
 
     void menuTreino()
 {
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
+    printf("\t\t\t\t\t\t\t   ==================================================\n");
+    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
+    printf("\t\t\t\t\t\t\t   ==================================================\n");
+    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
+    printf("\t\t\t\t\t\t\t   |   46 - Estados Unidos                          |\n");
+    printf("\t\t\t\t\t\t\t   |   47 - China                                   |\n");
+    printf("\t\t\t\t\t\t\t   |   48 - Japao                                   |\n");
+    printf("\t\t\t\t\t\t\t   |   49 - Gra-Bretanha                            |\n");
+    printf("\t\t\t\t\t\t\t   |   50 - ROC                                     |\n");
+    printf("\t\t\t\t\t\t\t   |   51 - Australia                               |\n");
+    printf("\t\t\t\t\t\t\t   |   52 - Paises Baixos                           |\n");
+    printf("\t\t\t\t\t\t\t   |   53 - Franca                                  |\n");
+    printf("\t\t\t\t\t\t\t   |   54 - Alemanha                                |\n");
+    printf("\t\t\t\t\t\t\t   |   55 - Italia                                  |\n");
+    printf("\t\t\t\t\t\t\t   |   56 - Canada                                  |\n");
+    printf("\t\t\t\t\t\t\t   |   57 - Brasil                                  |\n");
+    printf("\t\t\t\t\t\t\t   |   58 - Nova Zelandia                           |\n");
+    printf("\t\t\t\t\t\t\t   |   59 - Cuba                                    |\n");
+    printf("\t\t\t\t\t\t\t   |   60 - Hungria                                 |\n");
+    printf("\t\t\t\t\t\t\t   |                                                |\n");
+    printf("\t\t\t\t\t\t\t   ==================================================\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |                                                |\n");
+    printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / "),printf(ANSI_COLOR_GREEN"4"),printf(ANSI_COLOR_WHITE" / 5 / 6                 |\n");
+    printf("\t\t\t\t\t\t\t   |                                                |\n");
+    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
+    printf("\t\t\t\t\t\t\t   |                                                |\n");
+    printf("\t\t\t\t\t\t\t   ==================================================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
 
     FILE *pon_arq;
 
