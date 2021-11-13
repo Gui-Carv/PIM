@@ -389,69 +389,32 @@ void menuMedalhas2()
 
     void menuTreino()
 {
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |   46 - Estados Unidos                          |\n");
-    printf("\t\t\t\t\t\t\t   |   47 - China                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   48 - Japao                                   |\n");
-    printf("\t\t\t\t\t\t\t   |   49 - Gra-Bretanha                            |\n");
-    printf("\t\t\t\t\t\t\t   |   50 - ROC                                     |\n");
-    printf("\t\t\t\t\t\t\t   |   51 - Australia                               |\n");
-    printf("\t\t\t\t\t\t\t   |   52 - Paises Baixos                           |\n");
-    printf("\t\t\t\t\t\t\t   |   53 - Franca                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   54 - Alemanha                                |\n");
-    printf("\t\t\t\t\t\t\t   |   55 - Italia                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   56 - Canada                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   57 - Brasil                                  |\n");
-    printf("\t\t\t\t\t\t\t   |   58 - Nova Zelandia                           |\n");
-    printf("\t\t\t\t\t\t\t   |   59 - Cuba                                    |\n");
-    printf("\t\t\t\t\t\t\t   |   60 - Hungria                                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / "),printf(ANSI_COLOR_GREEN"4"),printf(ANSI_COLOR_WHITE" / 5 / 6                 |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
-    printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
-
     FILE *pon_arq;
 
     pon_arq = fopen("treino.txt", "a");
 
     printf("\n\n\n\n\n\n\n");
-    printf ("\t\t\t\t     Dias disponiveis\n");
-    printf ("\t\t\t\tSegunda-feira: 10h 13h 15h 17h\n");
-    printf ("\t\t\t\tterca-feira:   10h 15h 17h\n");
-    printf ("\t\t\t\tQuarta-feira:  10h 13h 19h\n");
-    printf ("\t\t\t\tquinta-feira:  10h 19h 21h\n");
-    printf ("\t\t\t\tquinta-feira:  Nao ha horarios\n");
-    printf ("\t\t\t\tsexta-feira:   Nao ha horarios\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t       Dias disponiveis\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   Segunda-feira: 10h 13h 15h 17h\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   terca-feira:   10h 15h 17h\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   quarta-feira:  10h 13h 19h\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   quinta-feira:  10h 19h 21h\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   quinta-feira:  Nao ha horarios\n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t   sexta-feira:   Nao ha horarios\n");
     printf("\n\n");
 
-
     printf("\n");
-    printf ("\t\t\t\t "),printf(ANSI_COLOR_GREEN"Marque seu treino"),printf(ANSI_COLOR_WHITE" \n");
+    printf ("\t\t\t\t\t\t\t\t\t\t\t "),printf(ANSI_COLOR_GREEN"Marque seu treino!"),printf(ANSI_COLOR_WHITE" \n");
 
-    printf("Digite seu nome: ");
+    printf("\t\t\t\t\t\t\t\t\t\t\t Digite seu nome: ");
     scanf("%s", nome);
     fprintf(pon_arq, "%s\n", nome);
 
-    printf("Digite sua modalidade: ");
+    printf("\t\t\t\t\t\t\t\t\t\t\t Digite sua modalidade: ");
     scanf("%s", modalidade);
     fprintf(pon_arq, "%s\n", modalidade);
 
-    printf("Digite sua equipe(pais): ");
+    printf("\t\t\t\t\t\t\t\t\t\t\t Digite sua equipe(pais): ");
     scanf("%s", equipe);
     fprintf(pon_arq, "%s\n", equipe);
 
