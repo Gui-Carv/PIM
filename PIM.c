@@ -150,7 +150,7 @@ void menuLogin()
 
     FILE *pon_arq;
 
-    pon_arq = fopen("cadastro.txt", "a");
+    pon_arq = fopen("cadastro.txt", "r");
 
     printf("\n");
     printf ("\t\t\t\tFaca seu Login:\n");
@@ -169,42 +169,42 @@ void menuLogin()
 
 void menuUsers()
 {
-        printf("\n\n\n\n\n\n\n");
-        printf("\t\t\t\t\t\t\t\t            Area de cadastro\n");
-        printf("\t\t\t\t\t\t\t\t    ===============================\n");
-        printf("\t\t\t\t\t\t\t\t    |                             |\n");
-        printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
-        printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
-        printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
-        printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
-        printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
-        printf("\t\t\t\t\t\t\t\t    |                             |\n");
-        printf("\t\t\t\t\t\t\t\t    ===============================\n");
-        printf("\n\n");
-        printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t            Area de cadastro\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+    switch(input)
+    {
+    case 1:
+        menuCad();
+        break;
+    case 2:
+        menuAlterarUser();
+        break;
+    case 3:
+        //removerUser(qtdUsers, users_dir);
+        break;
+    case 4:
+        menuPrincipal();
+        break;
+    case 0:
+        exit(EXIT_SUCCESS);
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
         fflush(stdin);
-        scanf("%d", &input);
-        system("cls");
-        switch(input)
-        {
-        case 1:
-            menuCad();
-            break;
-        case 2:
-            menuAlterarUser();
-            break;
-        case 3:
-            //removerUser(qtdUsers, users_dir);
-            break;
-        case 4:
-            menuPrincipal();
-            break;
-        case 0:
-            exit(EXIT_SUCCESS);
-        default:
-            printf ("\n\t\t\tOpcao invalida!\n\n");
-            fflush(stdin);
-        }
+    }
     system("cls");
 }
 
@@ -304,7 +304,7 @@ void menuMedalhas()
     printf("\t\t\t\t\t\t\t   |   15 - Hungria             6 |    7  |     7   |\n");
     printf("\t\t\t\t\t\t\t   |                              |       |         |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" / 2 / 3 / 4 / 5 / 6                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -370,7 +370,7 @@ void menuMedalhas2()
     printf("\t\t\t\t\t\t\t   |   30 - Hungria                                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          1 / "),printf(ANSI_COLOR_GREEN"2"),printf(ANSI_COLOR_WHITE" / 3 / 4 / 5 / 6                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -436,7 +436,7 @@ void menuMedalhas3()
     printf("\t\t\t\t\t\t\t   |   45 - Hungria                                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          1 / 2 / "),printf(ANSI_COLOR_GREEN"3"),printf(ANSI_COLOR_WHITE" / 4 / 5 / 6                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -502,7 +502,7 @@ void menuMedalhas4()
     printf("\t\t\t\t\t\t\t   |   60 - Hungria                                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / "),printf(ANSI_COLOR_GREEN"4"),printf(ANSI_COLOR_WHITE" / 5 / 6                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -568,7 +568,7 @@ void menuMedalhas5()
     printf("\t\t\t\t\t\t\t   |   75 - Hungria                                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / 4 / "),printf(ANSI_COLOR_GREEN"5"),printf(ANSI_COLOR_WHITE" / 6                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
@@ -634,7 +634,7 @@ void menuMedalhas6()
     printf("\t\t\t\t\t\t\t   |   90 - Hungria                                 |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite 2 Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   |          1 / 2 / 3 / 4 / 5 / "),printf(ANSI_COLOR_GREEN"6"),printf(ANSI_COLOR_WHITE"\t\t    |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
