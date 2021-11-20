@@ -36,7 +36,6 @@ void menuOtherUsers();
 void menuDates();
 void menuMedalhas();
 void menuMedalhas2();
-void menuAlterarUser();
 
 //Início do main
 int main(int argc, char** argv)
