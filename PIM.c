@@ -366,34 +366,34 @@ void menuAtleta()
     system("cls");
 }
 
-//Calendario Olimpico 
+//Calendario Olimpico
 void menuDates()
 {
     printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t                  Calendario Olimpico\n");
-    printf("\t\t\t\t\t   =====================================================================================\n");
-    printf("\t\t\t\t\t   |       Modalidades                                Horarios                         |\n");
-    printf("\t\t\t\t\t   =====================================================================================\n");
-    printf("\t\t\t\t\t   |                      SEGUNDA / TERCA / QUARTA / QUINTA / SEXTA / SABADO / DOMINGO |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |   |                                                                               |\n");
-    printf("\t\t\t\t\t   |                                                                                   |\n");
-    printf("\t\t\t\t\t   =====================================================================================\n");
-    printf("\t\t\t\t\t   |                                                                                   |\n");
-    printf("\t\t\t\t\t   |                                                                                   |\n");
-    printf("\t\t\t\t\t   |                       1 - Voltar para a area de atleta                            |\n");
-    printf("\t\t\t\t\t   |                                                                                   |\n");
-    printf("\t\t\t\t\t   |                       2 - Ir para o menu principal                                |\n");
-    printf("\t\t\t\t\t   |                                                                                   |\n");
-    printf("\t\t\t\t\t   =====================================================================================\n");
+    printf("\t\t\t\t\t\t\t                                 Calendario Olimpico\n");
+    printf("\t\t\t\t\t   ============================================================================================\n");
+    printf("\t\t\t\t\t   |         Data        Prova                          horario             modalidade        |\n");
+    printf("\t\t\t\t\t   ===========================================================================================\n");
+    printf("\t\t\t\t\t   |      28/07/2021    República Dominicana x Japão    00h05               beisebol          |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Alemanha x Irlanda              00h20               hoquei            |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Brasil x Grã-Bretanha           01h00               Tiro ao Arco      |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Canadá x África do Sul          01h00               Polo aquatico     |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Hungria x Estados Unidos        01h30               Polo aquatico     |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Arábia Saudita x Brasil         01h30               Futebol Masculino |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Estados Unidos x França         01h50               Basquete          |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Estados Unidos x África do Sul  01h50               Rugbi Masculino   |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Itália x Austrália              01h50               Basqute           |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Romênia x Nova Zelândia         02h50               Futebol Masculino |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2021    Grã-Bretanha x Argentina        02h50               Rugbi Masculino   |\n");
+    printf("\t\t\t\t\t   |                                                                                          |\n");
+    printf("\t\t\t\t\t   ===========================================================================================\n");
+    printf("\t\t\t\t\t   |                                                                                          |\n");
+    printf("\t\t\t\t\t   |                                                                                          |\n");
+    printf("\t\t\t\t\t   |                       1 - Voltar para a area de atleta                                   |\n");
+    printf("\t\t\t\t\t   |                                                                                          |\n");
+    printf("\t\t\t\t\t   |                       2 - Ir para o menu principal                                       |\n");
+    printf("\t\t\t\t\t   |                                                                                          |\n");
+    printf("\t\t\t\t\t   ===========================================================================================\n");
     printf("\n\n");
     printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
     fflush(stdin);
@@ -412,7 +412,7 @@ void menuDates()
     }
 }
 
-//Gerenciar dados de Usuarios 
+//Gerenciar dados de Usuarios
 void menuAlterarUser()
 {
     printf("\n\n\n\n\n\n\n");
