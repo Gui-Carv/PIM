@@ -15,15 +15,14 @@
 //Declaração das Estruturas a serem utilizadas
 
 char cores[7];
-char pais[20];
-char cep[8];
 char nome[40];
 char idade[2];
+char pais[20];
 char telefone[11];
 char senha[12];
 char modalidade[20];
 char equipe[20];
-char segredo[12];
+char dia[20];
 
 
 //Declaração das variáveis
@@ -44,10 +43,6 @@ void menuDates();
 void menuAtleta();
 void menuMedalhas();
 void menuMedalhas2();
-void menuMedalhas3();
-void menuMedalhas4();
-void menuMedalhas5();
-void menuMedalhas6();
 void menuAlterarUser();
 void removerQuebraLinha();
 void inserirUser();
@@ -204,6 +199,10 @@ void menuCad()
     scanf("%s", idade);
     fprintf(pon_arq, "%s\n", idade);
 
+    printf("\t\t\t\t\t\t\t\tDigite seu pais de origem: ");
+    scanf("%s", pais);
+    fprintf(pon_arq, "%s\n", pais);
+
     printf("\t\t\t\t\t\t\t\tDigite seu telefone: ");
     scanf("%s", telefone);
     fprintf(pon_arq, "%s\n", telefone);
@@ -225,8 +224,9 @@ void menuOtherUsers()
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
-    printf("\t\t\t\t\t\t\t\t    |    2 - Reserve seu treino   |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Atendimento Olimpico |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Tabela de Medalhas   |\n");
+    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -244,6 +244,9 @@ void menuOtherUsers()
         menuTreino();
         break;
     case 3:
+        menuMedalhas();
+        break;
+    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -316,6 +319,10 @@ void menuCadAtleta()
     scanf("%s", idade);
     fprintf(pon_arq, "%s\n", idade);
 
+    printf("\t\t\t\t\t\t\t\tDigite seu pais de origem: ");
+    scanf("%s", pais);
+    fprintf(pon_arq, "%s\n", pais);
+
     printf("\t\t\t\t\t\t\t\tDigite seu telefone: ");
     scanf("%s", telefone);
     fprintf(pon_arq, "%s\n", telefone);
@@ -337,7 +344,8 @@ void menuAtleta()
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
     printf("\t\t\t\t\t\t\t\t    |    2 - Reserve seu treino   |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Tabela de Medalhas   |\n");
+    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -355,6 +363,9 @@ void menuAtleta()
         menuTreino();
         break;
     case 3:
+        menuMedalhas();
+        break;
+    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -568,29 +579,33 @@ void menuMedalhas2()
     pon_arq = fopen("treino.txt", "a");
 
     printf("\n\n\n\n\n\n\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t       Dias disponiveis\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   Segunda-feira: 10h 13h 15h 17h\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   terca-feira:   10h 15h 17h\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   quarta-feira:  10h 13h 19h\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   quinta-feira:  10h 19h 21h\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   quinta-feira:  Nao ha horarios\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t   sexta-feira:   Nao ha horarios\n");
+    printf ("\t\t\t\t\t\t\t\t       Dias disponiveis\n");
+    printf ("\t\t\t\t\t\t\t\t   Segunda-feira: 10h 13h 15h 17h\n");
+    printf ("\t\t\t\t\t\t\t\t   terca-feira:   10h 15h 17h\n");
+    printf ("\t\t\t\t\t\t\t\t   quarta-feira:  10h 13h 19h\n");
+    printf ("\t\t\t\t\t\t\t\t   quinta-feira:  10h 19h 21h\n");
+    printf ("\t\t\t\t\t\t\t\t   quinta-feira:  Nao ha horarios\n");
+    printf ("\t\t\t\t\t\t\t\t   sexta-feira:   Nao ha horarios\n");
     printf("\n\n");
 
     printf("\n");
-    printf ("\t\t\t\t\t\t\t\t\t\t\t "),printf(ANSI_COLOR_GREEN"Marque seu treino!"),printf(ANSI_COLOR_WHITE" \n");
+    printf ("\t\t\t\t\t\t\t\t\t "),printf(ANSI_COLOR_GREEN"Marque seu treino!"),printf(ANSI_COLOR_WHITE" \n");
 
-    printf("\t\t\t\t\t\t\t\t\t\t\t Digite seu nome: ");
+    printf("\t\t\t\t\t\t\t\t\t Digite seu nome: ");
     scanf("%s", nome);
     fprintf(pon_arq, "%s\n", nome);
 
-    printf("\t\t\t\t\t\t\t\t\t\t\t Digite sua modalidade: ");
+    printf("\t\t\t\t\t\t\t\t\t Digite sua modalidade: ");
     scanf("%s", modalidade);
     fprintf(pon_arq, "%s\n", modalidade);
 
-    printf("\t\t\t\t\t\t\t\t\t\t\t Digite sua equipe(pais): ");
+    printf("\t\t\t\t\t\t\t\t\t Digite sua equipe(pais): ");
     scanf("%s", equipe);
     fprintf(pon_arq, "%s\n", equipe);
+
+    printf("\t\t\t\t\t\t\t\t\t Digite o dia e hora do seu treino: ");
+    scanf("%s", dia);
+    fprintf(pon_arq, "%s\n", dia);
 
 
     system("cls");
