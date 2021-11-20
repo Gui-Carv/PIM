@@ -23,35 +23,20 @@ char senha[12];
 char modalidade[20];
 char equipe[20];
 char dia[20];
-
-
-//Declaração das variáveis
 int input = 0;
-int qtdUsers;
-int tamUsers;
-char users_dir[] = "Users.bin";
-FILE *arquivo;
 
 //Declaração dos Procedimentos e Funções a serem utilizados
 void menuPrincipal();
-void menuUsers();
-void menuOtherUsers();
 void menuUserAtleta();
-void menuCad();
 void menuCadAtleta();
-void menuDates();
 void menuAtleta();
+void menuUsers();
+void menuCad();
+void menuOtherUsers();
+void menuDates();
 void menuMedalhas();
 void menuMedalhas2();
 void menuAlterarUser();
-void removerQuebraLinha();
-void inserirUser();
-void alterarEndereco();
-void alterarNome();
-void alterarTelefone();
-int removerUser();
-int receberUser();
-int receberEndereco();
 
 //Início do main
 int main(int argc, char** argv)
@@ -106,6 +91,8 @@ void menuPrincipal()
     printf("\t\t\t\t\t\t\t    |\t 2 - Fazer login como Medico              |\n");
     printf("\t\t\t\t\t\t\t    |\t 3 - Fazer login como Funcionario         |\n");
     printf("\t\t\t\t\t\t\t    |\t 4 - Fazer login como Voluntario          |\n");
+    printf("\t\t\t\t\t\t\t    |\t                                          |\n");
+    printf("\t\t\t\t\t\t\t    |\t 5 - Veja o Rank de Paises                |\n");
     printf("\t\t\t\t\t\t\t    |\t 0 - Sair                                 |\n");
     printf("\t\t\t\t\t\t\t    |\t                                          |\n");
     printf("\t\t\t\t\t\t\t    ===============================================\n");
@@ -129,6 +116,9 @@ void menuPrincipal()
         case 4:
             menuUsers();
             break;
+        case 5:
+            menuMedalhas();
+            break;
         case 0:
             exit(EXIT_SUCCESS);
         default:
@@ -146,9 +136,7 @@ void menuUsers()
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
-    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -163,12 +151,6 @@ void menuUsers()
         menuCad();
         break;
     case 2:
-        menuAlterarUser();
-        break;
-    case 3:
-        //removerUser(qtdUsers, users_dir);
-        break;
-    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -225,8 +207,7 @@ void menuOtherUsers()
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
     printf("\t\t\t\t\t\t\t\t    |    2 - Atendimento Olimpico |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Tabela de Medalhas   |\n");
-    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -244,9 +225,6 @@ void menuOtherUsers()
         menuTreino();
         break;
     case 3:
-        menuMedalhas();
-        break;
-    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -266,9 +244,7 @@ void menuUserAtleta()
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
-    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -283,12 +259,6 @@ void menuUserAtleta()
         menuCadAtleta();
         break;
     case 2:
-        menuAlterarUser();
-        break;
-    case 3:
-        //removerUser(qtdUsers, users_dir);
-        break;
-    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -344,8 +314,7 @@ void menuAtleta()
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
     printf("\t\t\t\t\t\t\t\t    |    2 - Reserve seu treino   |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Tabela de Medalhas   |\n");
-    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
     printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
     printf("\t\t\t\t\t\t\t\t    |                             |\n");
     printf("\t\t\t\t\t\t\t\t    ===============================\n");
@@ -363,9 +332,6 @@ void menuAtleta()
         menuTreino();
         break;
     case 3:
-        menuMedalhas();
-        break;
-    case 4:
         menuPrincipal();
         break;
     case 0:
@@ -385,17 +351,17 @@ void menuDates()
     printf("\t\t\t\t\t   ============================================================================================\n");
     printf("\t\t\t\t\t   |         Data        Prova                          horario             modalidade        |\n");
     printf("\t\t\t\t\t   ===========================================================================================\n");
-    printf("\t\t\t\t\t   |      28/07/2021    República Dominicana x Japão    00h05               beisebol          |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Alemanha x Irlanda              00h20               hoquei            |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Brasil x Grã-Bretanha           01h00               Tiro ao Arco      |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Canadá x África do Sul          01h00               Polo aquatico     |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Hungria x Estados Unidos        01h30               Polo aquatico     |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Arábia Saudita x Brasil         01h30               Futebol Masculino |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Estados Unidos x França         01h50               Basquete          |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Estados Unidos x África do Sul  01h50               Rugbi Masculino   |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Itália x Austrália              01h50               Basqute           |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Romênia x Nova Zelândia         02h50               Futebol Masculino |\n");
-    printf("\t\t\t\t\t   |   |  28/07/2021    Grã-Bretanha x Argentina        02h50               Rugbi Masculino   |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    República Dominicana x Japão    00h05               beisebol          |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Alemanha x Irlanda              00h20               hoquei            |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Brasil x Grã-Bretanha           01h00               Tiro ao Arco      |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Canadá x África do Sul          01h00               Polo aquatico     |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Hungria x Estados Unidos        01h30               Polo aquatico     |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Arábia Saudita x Brasil         01h30               Futebol Masculino |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Estados Unidos x França         01h50               Basquete          |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Estados Unidos x África do Sul  01h50               Rugbi Masculino   |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Itália x Austrália              01h50               Basqute           |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Romênia x Nova Zelândia         02h50               Futebol Masculino |\n");
+    printf("\t\t\t\t\t   |   |  28/07/2024    Grã-Bretanha x Argentina        02h50               Rugbi Masculino   |\n");
     printf("\t\t\t\t\t   |                                                                                          |\n");
     printf("\t\t\t\t\t   ===========================================================================================\n");
     printf("\t\t\t\t\t   |                                                                                          |\n");
@@ -423,47 +389,6 @@ void menuDates()
     }
 }
 
-//Gerenciar dados de Usuarios
-void menuAlterarUser()
-{
-    printf("\n\n\n\n\n\n\n");
-    printf("\t\t\t\t\t\t\t\t            Gerenciar Dados\n");
-    printf("\t\t\t\t\t\t\t\t    ===============================\n");
-    printf("\t\t\t\t\t\t\t\t    |                             |\n");
-    printf("\t\t\t\t\t\t\t\t    |    1 - Alterar Nome         |\n");
-    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Telefone     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    3 - Alterar Endereco     |\n");
-    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
-    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
-    printf("\t\t\t\t\t\t\t\t    |                             |\n");
-    printf("\t\t\t\t\t\t\t\t    ===============================\n");
-    printf("\n\n");
-    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
-    fflush(stdin);
-    scanf("%d", &input);
-    system("cls");
-
-    switch(input)
-    {
-    case 1:
-        //alterarNome();
-        break;
-    case 2:
-        //alterarTelefone();
-        break;
-    case 3:
-        //alterarEndereco();
-        break;
-    case 4:
-        menuPrincipal();
-        break;
-    case 0:
-        exit(EXIT_SUCCESS);
-    default:
-        printf ("\n\t\t\tOpcao invalida!\n\n");
-        fflush(stdin);
-    }
-}
 
 //Primeira tabela de medalhas
 void menuMedalhas()
