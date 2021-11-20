@@ -35,10 +35,13 @@ FILE *arquivo;
 
 //Declaração dos Procedimentos e Funções a serem utilizados
 void menuPrincipal();
-void menuLogin();
 void menuUsers();
+void menuOtherUsers();
+void menuUserAtleta();
 void menuCad();
+void menuCadAtleta();
 void menuDates();
+void menuAtleta();
 void menuMedalhas();
 void menuMedalhas2();
 void menuMedalhas3();
@@ -73,6 +76,7 @@ void sucesso()
     printf ("Operacao realizada com sucesso!");
 }
 
+//Menu principal e Logo
 void menuPrincipal()
 {
     system("color 07");
@@ -101,13 +105,12 @@ void menuPrincipal()
     printf(ANSI_COLOR_WHITE"\t\t\t\t\t\t\t\t\t    Seja Bem-vindo!\n");
     printf("\t\t\t\t\t\t\t    ===============================================\n");
     printf("\t\t\t\t\t\t\t    |\t                                          |\n");
-    printf("\t\t\t\t\t\t\t    |\t 1 - Ja tenho uma conta                   |\n");
-    printf("\t\t\t\t\t\t\t    |\t 2 - Fazer login como Atleta              |\n");
-    printf("\t\t\t\t\t\t\t    |\t 3 - Fazer login como Medico              |\n");
-    printf("\t\t\t\t\t\t\t    |\t 4 - Fazer login como Funcionario         |\n");
-    printf("\t\t\t\t\t\t\t    |\t 5 - Fazer login como Voluntario          |\n");
-    printf("\t\t\t\t\t\t\t    |\t 6 - Quadro de Medalhas                   |\n");
-    printf("\t\t\t\t\t\t\t    |\t 7 - Marque um treino                     |\n");
+    printf("\t\t\t\t\t\t\t    |\t        Como deseja fazer login?          |\n");
+    printf("\t\t\t\t\t\t\t    |\t                                          |\n");
+    printf("\t\t\t\t\t\t\t    |\t 1 - Fazer login como Atleta              |\n");
+    printf("\t\t\t\t\t\t\t    |\t 2 - Fazer login como Medico              |\n");
+    printf("\t\t\t\t\t\t\t    |\t 3 - Fazer login como Funcionario         |\n");
+    printf("\t\t\t\t\t\t\t    |\t 4 - Fazer login como Voluntario          |\n");
     printf("\t\t\t\t\t\t\t    |\t 0 - Sair                                 |\n");
     printf("\t\t\t\t\t\t\t    |\t                                          |\n");
     printf("\t\t\t\t\t\t\t    ===============================================\n");
@@ -120,7 +123,7 @@ void menuPrincipal()
     switch(input)
         {
         case 1:
-            menuLogin();
+            menuUserAtleta();
             break;
         case 2:
             menuUsers();
@@ -131,15 +134,6 @@ void menuPrincipal()
         case 4:
             menuUsers();
             break;
-        case 5:
-            menuUsers();
-            break;
-        case 6:
-            menuMedalhas();
-            break;
-        case 7:
-            menuTreino();
-            break;
         case 0:
             exit(EXIT_SUCCESS);
         default:
@@ -149,28 +143,7 @@ void menuPrincipal()
     system("cls");
 }
 
-void menuLogin()
-{
-
-    FILE *pon_arq;
-
-    pon_arq = fopen("cadastro.txt", "r");
-
-    printf("\n");
-    printf ("\t\t\t\tFaca seu Login:\n");
-
-    printf("Digite seu nome: ");
-    scanf("%s", nome);
-    fscanf(pon_arq, "%s\n", nome);
-
-    printf("Digite sua senha: ");
-    scanf("%s", senha);
-    fscanf(pon_arq, "%s\n", senha);
-
-    system("cls");
-    menuPrincipal();
-}
-
+//Menu login de Medicos, Funcionarios e Voluntarios
 void menuUsers()
 {
     printf("\n\n\n\n\n\n\n");
@@ -212,6 +185,7 @@ void menuUsers()
     system("cls");
 }
 
+//Cadastro de Medicos, Funcionarios e Voluntarios
 void menuCad()
 {
 
@@ -219,29 +193,226 @@ void menuCad()
 
     pon_arq = fopen("cadastro.txt", "a");
 
-    printf("\n");
-    printf ("\t\t\t\tFaca seu cadastro\n");
+    printf("\n\n\n\n\n\n\n");
+    printf ("\t\t\t\t\t\t\t\tFaca seu cadastro\n\n");
 
-    printf("Digite seu nome: ");
+    printf("\t\t\t\t\t\t\t\tDigite seu nome: ");
     scanf("%s", nome);
     fprintf(pon_arq, "%s\n", nome);
 
-    printf("Digite sua idade: ");
+    printf("\t\t\t\t\t\t\t\tDigite sua idade: ");
     scanf("%s", idade);
     fprintf(pon_arq, "%s\n", idade);
 
-    printf("Digite seu telefone: ");
+    printf("\t\t\t\t\t\t\t\tDigite seu telefone: ");
     scanf("%s", telefone);
     fprintf(pon_arq, "%s\n", telefone);
 
-    printf("Crie uma senha: ");
+    printf("\t\t\t\t\t\t\t\tCrie uma senha: ");
     scanf("%s", senha);
     fprintf(pon_arq, "%s\n", senha);
 
     system("cls");
-    menuPrincipal();
+    menuOtherUsers();
 }
 
+
+//Area de Medicos, Funcionarios e Voluntarios
+void menuOtherUsers()
+{
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t            Area de Usuario\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Reserve seu treino   |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+    switch(input)
+    {
+    case 1:
+        menuDates();
+        break;
+    case 2:
+        menuTreino();
+        break;
+    case 3:
+        menuPrincipal();
+        break;
+    case 0:
+        exit(EXIT_SUCCESS);
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
+        fflush(stdin);
+    }
+    system("cls");
+}
+
+//Menu login de Atletas
+void menuUserAtleta()
+{
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t            Area de cadastro\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    |    1 - Cadastrar            |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Alterar Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Excluir Cadastro     |\n");
+    printf("\t\t\t\t\t\t\t\t    |    4 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+    switch(input)
+    {
+    case 1:
+        menuCadAtleta();
+        break;
+    case 2:
+        menuAlterarUser();
+        break;
+    case 3:
+        //removerUser(qtdUsers, users_dir);
+        break;
+    case 4:
+        menuPrincipal();
+        break;
+    case 0:
+        exit(EXIT_SUCCESS);
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
+        fflush(stdin);
+    }
+    system("cls");
+}
+
+//Cadastro de Atletas
+void menuCadAtleta()
+{
+
+    FILE *pon_arq;
+
+    pon_arq = fopen("cadastro.txt", "a");
+
+    printf("\n\n\n\n\n\n\n");
+    printf ("\t\t\t\t\t\t\t\tFaca seu cadastro\n\n");
+
+    printf("\t\t\t\t\t\t\t\tDigite seu nome: ");
+    scanf("%s", nome);
+    fprintf(pon_arq, "%s\n", nome);
+
+    printf("\t\t\t\t\t\t\t\tDigite sua idade: ");
+    scanf("%s", idade);
+    fprintf(pon_arq, "%s\n", idade);
+
+    printf("\t\t\t\t\t\t\t\tDigite seu telefone: ");
+    scanf("%s", telefone);
+    fprintf(pon_arq, "%s\n", telefone);
+
+    printf("\t\t\t\t\t\t\t\tCrie uma senha: ");
+    scanf("%s", senha);
+    fprintf(pon_arq, "%s\n", senha);
+
+    system("cls");
+    menuAtleta();
+}
+
+//Area de Atletas
+void menuAtleta()
+{
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t\t            Area de Atleta\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    |    1 - Calendario Olimpico  |\n");
+    printf("\t\t\t\t\t\t\t\t    |    2 - Reserve seu treino   |\n");
+    printf("\t\t\t\t\t\t\t\t    |    3 - Menu Principal       |\n");
+    printf("\t\t\t\t\t\t\t\t    |    0 - Sair                 |\n");
+    printf("\t\t\t\t\t\t\t\t    |                             |\n");
+    printf("\t\t\t\t\t\t\t\t    ===============================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t    Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+    switch(input)
+    {
+    case 1:
+        menuDates();
+        break;
+    case 2:
+        menuTreino();
+        break;
+    case 3:
+        menuPrincipal();
+        break;
+    case 0:
+        exit(EXIT_SUCCESS);
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
+        fflush(stdin);
+    }
+    system("cls");
+}
+
+//Calendario Olimpico 
+void menuDates()
+{
+    printf("\n\n\n\n\n\n\n");
+    printf("\t\t\t\t\t\t\t                  Calendario Olimpico\n");
+    printf("\t\t\t\t\t   =====================================================================================\n");
+    printf("\t\t\t\t\t   |       Modalidades                                Horarios                         |\n");
+    printf("\t\t\t\t\t   =====================================================================================\n");
+    printf("\t\t\t\t\t   |                      SEGUNDA / TERCA / QUARTA / QUINTA / SEXTA / SABADO / DOMINGO |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |   |                                                                               |\n");
+    printf("\t\t\t\t\t   |                                                                                   |\n");
+    printf("\t\t\t\t\t   =====================================================================================\n");
+    printf("\t\t\t\t\t   |                                                                                   |\n");
+    printf("\t\t\t\t\t   |                                                                                   |\n");
+    printf("\t\t\t\t\t   |                       1 - Voltar para a area de atleta                            |\n");
+    printf("\t\t\t\t\t   |                                                                                   |\n");
+    printf("\t\t\t\t\t   |                       2 - Ir para o menu principal                                |\n");
+    printf("\t\t\t\t\t   |                                                                                   |\n");
+    printf("\t\t\t\t\t   =====================================================================================\n");
+    printf("\n\n");
+    printf("\t\t\t\t\t\t\t\t   Por favor, selecione uma opcao: ");
+    fflush(stdin);
+    scanf("%d", &input);
+    system("cls");
+
+    switch(input)
+    {
+    case 1:
+        menuAtleta();
+    case 2:
+        menuPrincipal();
+    default:
+        printf ("\n\t\t\tOpcao invalida!\n\n");
+        fflush(stdin);
+    }
+}
+
+//Gerenciar dados de Usuarios 
 void menuAlterarUser()
 {
     printf("\n\n\n\n\n\n\n");
@@ -283,6 +454,7 @@ void menuAlterarUser()
     }
 }
 
+//Primeira tabela de medalhas
 void menuMedalhas()
 {
     printf("\n\n\n\n\n\n\n");
@@ -308,11 +480,11 @@ void menuMedalhas()
     printf("\t\t\t\t\t\t\t   |   15 - Hungria             6 |    7  |     7   |\n");
     printf("\t\t\t\t\t\t\t   |                              |       |         |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |            Digite o Numero da Pagina:          |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" / 2 /             |\n");
+    printf("\t\t\t\t\t\t\t   |"),printf(ANSI_COLOR_GREEN"                    1"),printf(ANSI_COLOR_WHITE" / 2                       |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
+    printf("\t\t\t\t\t\t\t   |               0 - Ir para o menu               |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
     printf("\n\n");
@@ -337,30 +509,32 @@ void menuMedalhas()
     }
 }
 
+//Segunda tabela de Medalhas
 void menuMedalhas2()
 {
     printf("\n\n\n\n\n\n\n");
     printf("\t\t\t\t\t\t\t\t\t   Tabela de Medalhas\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |         PAISES                  MEDALHAS       |\n");
+    printf("\t\t\t\t\t\t\t   |        PAISES                   MEDALHAS       |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
     printf("\t\t\t\t\t\t\t   |                          OURO / PRATA / BRONZE |\n");
-    printf("\t\t\t\t\t\t\t   |    16 - Coreia do sul       6 |    4  |    10   |\n");
-    printf("\t\t\t\t\t\t\t   |    17 - Polonia             4 |    5  |     5   |\n");
-    printf("\t\t\t\t\t\t\t   |    18 - Republica Checa     4 |    4  |     3   |\n");
-    printf("\t\t\t\t\t\t\t   |    19 - Quenia              4 |    4  |     2   |\n");
-    printf("\t\t\t\t\t\t\t   |    20 - Noruega             4 |    2  |     4   |\n");
-    printf("\t\t\t\t\t\t\t   |    21 - Jamaica             4 |    1  |     6   |\n");
-    printf("\t\t\t\t\t\t\t   |    22 - Espanha             3 |    8  |     0   |\n");
-    printf("\t\t\t\t\t\t\t   |    23 - Suecia              3 |    6  |     6   |\n");
-    printf("\t\t\t\t\t\t\t   |    24 - Suica               3 |    4  |     4   |\n");
-    printf("\t\t\t\t\t\t\t   |    25 - Dinamarca           3 |    4  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |   16 - Coreia do sul       6 |    4  |    10   |\n");
+    printf("\t\t\t\t\t\t\t   |   17 - Polonia             4 |    5  |     5   |\n");
+    printf("\t\t\t\t\t\t\t   |   18 - Republica Checa     4 |    4  |     3   |\n");
+    printf("\t\t\t\t\t\t\t   |   19 - Quenia              4 |    4  |     2   |\n");
+    printf("\t\t\t\t\t\t\t   |   20 - Noruega             4 |    2  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |   21 - Jamaica             4 |    1  |     6   |\n");
+    printf("\t\t\t\t\t\t\t   |   22 - Espanha             3 |    8  |     0   |\n");
+    printf("\t\t\t\t\t\t\t   |   23 - Suecia              3 |    6  |     6   |\n");
+    printf("\t\t\t\t\t\t\t   |   24 - Suica               3 |    4  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |   25 - Dinamarca           3 |    4  |     4   |\n");
+    printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
-    printf("\t\t\t\t\t\t\t   |        Digite o Numero da Pagina:              |\n");
+    printf("\t\t\t\t\t\t\t   |           Digite o Numero da Pagina:           |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |          "),printf(ANSI_COLOR_GREEN"1"),printf(ANSI_COLOR_WHITE" 1/ 2 /                 |\n");
+    printf("\t\t\t\t\t\t\t   |                    1 / "),printf(ANSI_COLOR_GREEN"2"),printf(ANSI_COLOR_WHITE"                       |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
-    printf("\t\t\t\t\t\t\t   |           0 - Ir para o menu                   |\n");
+    printf("\t\t\t\t\t\t\t   |               0 - Ir para o menu               |\n");
     printf("\t\t\t\t\t\t\t   |                                                |\n");
     printf("\t\t\t\t\t\t\t   ==================================================\n");
     printf("\n\n");
@@ -386,7 +560,7 @@ void menuMedalhas2()
 }
 
 
-
+//Menu de treinos
     void menuTreino()
 {
     FILE *pon_arq;
@@ -422,4 +596,3 @@ void menuMedalhas2()
     system("cls");
     menuPrincipal();
 }
-
